@@ -86,7 +86,19 @@ print("Top prob:", float(np.max(probs)))
 print("Probabilities:", probs)
 
 # Show the 28x28 image the model actually used
+confidence = float(np.max(probs)) * 100
+
+plt.figure(figsize=(5,5))
 plt.imshow(img28, cmap="gray")
-plt.title(f"Pred={pred}")
-plt.axis("off")
+
+plt.title(
+    f"Handwritten Digit Recognition\n"
+    f"Prediction: {pred}  |  Confidence: {confidence:.2f}%",
+    fontsize=12,
+    fontweight="bold"
+)
+
+plt.xticks([])
+plt.yticks([])
+plt.tight_layout()
 plt.show()
